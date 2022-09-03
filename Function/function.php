@@ -12,6 +12,13 @@
         }
         return $rows;
     }
+    function hapus($NIM){
+        global $conn;
+        $query = "DELETE FROM tbl_mahasiswa WHERE NIM = '$NIM'";
+
+        mysqli_query($conn, $query);
+        return mysqli_affected_rows($conn);
+    }
     function cari($keywords){
         $query = "SELECT * FROM tbl_mahasiswa
                 WHERE

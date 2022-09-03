@@ -1,4 +1,11 @@
 <?php
+    session_start();
+    if($_SESSION["Validasi"] == false){
+        header("Location: login.php");
+    }
+    if($_GET["nim"] == ''){
+        header("Location: main.php");
+    }
     require '../Function/function.php';
     $NIM= $_GET['nim'];
     $mahasiswa = query("SELECT * FROM tbl_mahasiswa WHERE NIM = $NIM")[0];

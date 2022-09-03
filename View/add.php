@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if($_SESSION["Validasi"] == false){
+        header("Location: login.php");
+    }
     require '../Function/function.php';
     if( isset($_POST['tambah'])){
         //insert input data ke database
@@ -36,6 +40,7 @@
 <body>
     <h1>Tambah Data</h1>
     <br>
+    <a href="main.php">back</a>
     <form action="" method = "post">
         <ul>
             <li>

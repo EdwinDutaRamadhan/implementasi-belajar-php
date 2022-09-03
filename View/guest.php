@@ -1,16 +1,8 @@
 <?php
-    session_start();
-    if($_SESSION["Validasi"] == false){
-        header("Location: login.php");
-    }
     require '../Function/function.php';
     $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT 10");
     $i = 1;
     $page = 1;
-    if( isset($_POST['cari'])){
-        // $mahasiswa = cari($_POST['keywords']);
-        $mahasiswa = cari($_POST['keywords']);    
-    }
     if( isset($_POST['next'])){
         switch($_POST['next']){
             case 1 :
@@ -47,16 +39,10 @@
 <body>
     <h1 text-align="center">Medical Assist Software</h1>
     <br>
-    <a href="add.php">Tambah data</a>
-    <form action="" method="post">
-        <input type="text" name="keywords"placeholder="Search">
-        <button type="submit" name="cari">Cari</button>
-    </form>
-
+    <a href="login.php">Login Admin</a>
     <table border="1" cellspacing="0" cellpadding="10">
         <tr>
             <th>No.</th>
-            <th>Action</th>
             <th>NIM</th>
             <th>Nama</th>
             <th>Vaksin - 1</th>
@@ -68,10 +54,6 @@
         <?php foreach ($mahasiswa as $row) : ?>
         <tr>
             <th><?= $i; ?></th>
-            <td>
-                <a href="edit.php?nim=<?= $row["NIM"];?>">Edit</a>|
-                <a href="delete.php?nim=<?= $row["NIM"]; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus?');" >Delete</a>
-            </td>
             <td><?= $row["NIM"]; ?></td>
             <td><?= $row["Nama"];?></td>
             <td><?= $row["Vaksin1"];?></td>

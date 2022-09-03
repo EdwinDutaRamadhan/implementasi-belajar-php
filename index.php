@@ -1,3 +1,3 @@
 <?php
-    header("Location: View/main.php");
+    header("Location: View/guest.php");
 ?>
