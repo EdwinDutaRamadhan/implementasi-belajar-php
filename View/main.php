@@ -1,11 +1,33 @@
 <?php
     require '../Function/function.php';
-
-    $mahasiswa = query("SELECT * FROM tbl_mahasiswa");
-
-    if( isset($_POST['search'])){
-        $mahasiswa = cari($_POST['keywords']);
+    $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT 10");
+    $i = 1;
+    if( isset($_POST['cari'])){
+        // $mahasiswa = cari($_POST['keywords']);
+        $mahasiswa = cari($_POST['keywords']);    
     }
+    if( isset($_POST['next'])){
+        switch($_POST['next']){
+            case 1 :
+                $i = 1;
+                $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT 10");
+            break;
+            case 2 :
+                $i = 11;
+                $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT 10 OFFSET 11");
+            break;
+            case 3 :
+                $i = 21;
+                $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT 10 OFFSET 21");
+            break;
+            case 4 :
+                $i = 31;
+                $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT 10 OFFSET 31");
+            break;
+            default :
+        }
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,15 +40,17 @@
 </head>
 <body>
     <h1 text-align="center">Medical Assist Software</h1>
-        
-    <form action="" metod="post">
+    <br>
+    <a href="add.php">Tambah data</a>
+    <form action="" method="post">
         <input type="text" name="keywords"placeholder="Search">
-        <button type="submit" name="search">Cari</button>
+        <button type="submit" name="cari">Cari</button>
     </form>
 
     <table border="1" cellspacing="0" cellpadding="10">
         <tr>
             <th>No.</th>
+            <th>Action</th>
             <th>NIM</th>
             <th>Nama</th>
             <th>Vaksin - 1</th>
@@ -35,10 +59,13 @@
             <th>Booster - 2</th>
             <th>Booster - 3</th>
         </tr>
-        <?php $i = 1; ?>
         <?php foreach ($mahasiswa as $row) : ?>
         <tr>
             <th><?= $i; ?></th>
+            <td>
+                <a href="edit.php?nim=<?= $row["NIM"]?>">Edit</a>|
+                <a href="delete.php">Delete</a>
+            </td>
             <td><?= $row["NIM"]; ?></td>
             <td><?= $row["Nama"];?></td>
             <td><?= $row["Vaksin1"];?></td>
@@ -50,5 +77,12 @@
         <?php $i++; ?>
         <?php endforeach; ?>
     </table>
+        <form action="" method = "post">
+            <button type="submit" name="next" value="1" >1</button>
+            <button type="submit" name="next" value="2">2</button>
+            <button type="submit" name="next" value="3">3</button>
+            <button type="submit" name="next" value="4">4</button>
+            <button type = "submit" name = "next-page" >next</button>
+        </form>
 </body>
 </html>
