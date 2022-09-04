@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require '../Function/function.php';
     if($_SESSION["Validasi"] == false){
         header("Location: login.php");
     }
@@ -15,34 +16,19 @@
         session_destroy();
         header("Location: login.php");
     }
-    require '../Function/function.php';
-    $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT 10");
-    $i = 1;
-    $page = 1;
+
+    $rowEveryPage = 10;
+    $pageSelected = (isset($_GET["page"])) ? $_GET['page'] : 1;
+    $_GET["page"] = (isset($_GET["page"])) ? $_GET['page'] : 1;
+    $totalData = count(query("SELECT * FROM tbl_mahasiswa"));
+    $firstDataEveryPage = ($rowEveryPage * $pageSelected ) - $rowEveryPage;
+    $totalPage = ceil($totalData / $rowEveryPage);
+    $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT $firstDataEveryPage, $rowEveryPage");
+    $i = $firstDataEveryPage + 1;
+    
     if( isset($_POST['cari'])){
         // $mahasiswa = cari($_POST['keywords']);
         $mahasiswa = cari($_POST['keywords']);    
-    }
-    if( isset($_POST['next'])){
-        switch($_POST['next']){
-            case 1 :
-                $i = 1;
-                $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT 10");
-            break;
-            case 2 :
-                $i = 11;
-                $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT 10 OFFSET 11");
-            break;
-            case 3 :
-                $i = 21;
-                $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT 10 OFFSET 21");
-            break;
-            case 4 :
-                $i = 31;
-                $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT 10 OFFSET 31");
-            break;
-            default :
-        }
     }
 
 
@@ -96,12 +82,18 @@
         <?php $i++; ?>
         <?php endforeach; ?>
     </table>
-        <form action="" method = "post">
-            <button type="submit" name="next" value="1" >1</button>
-            <button type="submit" name="next" value="2">2</button>
-            <button type="submit" name="next" value="3">3</button>
-            <button type="submit" name="next" value="4">4</button>
-            <button type = "submit" name = "next-page">next</button>
+        <form action="" method = "get">
+            <?php if($_GET["page"] > 1) : ?>
+                <a href="?page=<?=$prev = ($_GET["page"] - 1);?>">prev</a>
+            <?php endif; ?>
+            <?php for($j = 1; $j <= $totalPage; $j++) :?>
+                <?php if($j == $pageSelected) : ?>
+                    <a href="?page=<?= $j ?> " style="font-weight: bold;color: red;" ><?= $j ?></a>
+                <?php else : ?>
+                    <a href="?page=<?= $j ?> "><?= $j ?></a>
+                <?php endif; ?>
+            <?php endfor; ?>
+            <a href="?page=<?= $next = $_GET["page"] + 1;?>">next</a>
         </form>
 </body>
 </html>
