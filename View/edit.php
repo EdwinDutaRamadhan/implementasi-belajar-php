@@ -46,6 +46,7 @@
 <body>
     <h1>Edit Data</h1>
     <br>
+    <a href="main.php">back</a>
     <form action="" method = "post">
         <ul>
             <li>

@@ -17,9 +17,8 @@
                 header("Location: main.php");
                 exit;
             }
-        }else{
-            $error = true;
         }
+        $error = true;
         
     }
 ?>
@@ -37,7 +36,7 @@
         if( isset($error) ){
             echo"
                 <script>
-                    alert('login gagal');
+                    alert('username atau password salah');
                 </script>
             ";
         }

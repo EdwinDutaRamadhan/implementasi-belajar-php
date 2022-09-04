@@ -3,6 +3,18 @@
     if($_SESSION["Validasi"] == false){
         header("Location: login.php");
     }
+    if( isset($_POST["logout"])){
+        $_SESSION["Validasi"] = false;
+        session_unset();
+        session_destroy();
+        header("Location: login.php");
+    }
+    if( isset($_GET["logout"])){
+        $_SESSION["Validasi"] = false;
+        session_unset();
+        session_destroy();
+        header("Location: login.php");
+    }
     require '../Function/function.php';
     $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT 10");
     $i = 1;
@@ -51,8 +63,9 @@
     <form action="" method="post">
         <input type="text" name="keywords"placeholder="Search">
         <button type="submit" name="cari">Cari</button>
+        <a href="main.php?logout=true" style="float:right" name="logout" onclick="return confirm('anda yakin ingin logout?')">logout</a>
     </form>
-
+    
     <table border="1" cellspacing="0" cellpadding="10">
         <tr>
             <th>No.</th>
