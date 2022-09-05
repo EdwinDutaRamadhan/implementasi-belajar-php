@@ -19,7 +19,20 @@
         mysqli_query($conn, $query);
         return mysqli_affected_rows($conn);
     }
-    function cari($keywords){
+    function cariLimit($keywords, $firstDataEveryPage, $rowEveryPage){
+        $query = "SELECT * FROM tbl_mahasiswa
+                WHERE
+                NIM LIKE '%$keywords%' OR
+                Nama LIKE '%$keywords%' OR
+                Vaksin1 LIKE '%$keywords%' OR
+                Vaksin2 LIKE '%$keywords%' OR
+                Vaksin3 LIKE '%$keywords%' OR
+                Vaksin4 LIKE '%$keywords%' OR
+                Vaksin5 LIKE '%$keywords%' LIMIT $firstDataEveryPage, $rowEveryPage
+                ";
+        return query($query);
+    }
+    function cariNoLimit($keywords){
         $query = "SELECT * FROM tbl_mahasiswa
                 WHERE
                 NIM LIKE '%$keywords%' OR

@@ -1,30 +1,36 @@
 <?php
+    session_start();
     require '../Function/function.php';
-    $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT 10");
-    $i = 1;
-    $page = 1;
-    if( isset($_POST['next'])){
-        switch($_POST['next']){
-            case 1 :
-                $i = 1;
-                $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT 10");
-            break;
-            case 2 :
-                $i = 11;
-                $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT 10 OFFSET 11");
-            break;
-            case 3 :
-                $i = 21;
-                $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT 10 OFFSET 21");
-            break;
-            case 4 :
-                $i = 31;
-                $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT 10 OFFSET 31");
-            break;
-            default :
+    $rowEveryPage = 10;
+    $_GET["page"] = (isset($_GET["page"])) ? $_GET['page'] : 1;
+    $_POST["page"] = (isset($_POST["page"])) ? $_POST['page'] : 1;
+    $pageSelected = (isset($_POST["page"])) ? $_POST['page'] : 1;
+    
+    // if( isset($_POST['cari'])){
+    //     // $mahasiswa = cari($_POST['s']);
+    //     $mahasiswa = cari($_POST['s']);    
+    //     $totalData = count($mahasiswa);
+    //     $firstDataEveryPage = ($rowEveryPage * $pageSelected ) - $rowEveryPage;
+    //     $totalPage = ceil($totalData / $rowEveryPage);
+    //     $i = $firstDataEveryPage + 1;
+    // }
+    if( isset($_POST["page"]) ){
+        if( isset($_GET["s"]) ){
+            $nim = $_GET["s"];
+            $totalData = count(cariNoLimit($_GET["s"]));
+            $firstDataEveryPage = ($rowEveryPage * $pageSelected ) - $rowEveryPage;
+            $totalPage = ceil($totalData / $rowEveryPage);
+            $mahasiswa = cariLimit($_GET["s"],  $firstDataEveryPage, $rowEveryPage);
+            $i = $firstDataEveryPage + 1;
+        }else{
+            $totalData = count(query("SELECT * FROM tbl_mahasiswa"));
+            $firstDataEveryPage = ($rowEveryPage * $pageSelected ) - $rowEveryPage;
+            $totalPage = ceil($totalData / $rowEveryPage);
+            $mahasiswa = query("SELECT * FROM tbl_mahasiswa LIMIT $firstDataEveryPage, $rowEveryPage");
+            $i = $firstDataEveryPage + 1;
         }
-    }
 
+    }
 
 ?>
 <!DOCTYPE html>
@@ -39,7 +45,12 @@
 <body>
     <h1 text-align="center">Medical Assist Software</h1>
     <br>
-    <a href="login.php">Login Admin</a>
+    <form action="" method="get">
+        <input type="text" name="s"placeholder="Search" required>
+        <button type="submit" >Cari</button>
+        <a href="main.php?logout=true" style="float:right" name="logout" onclick="return confirm('anda yakin ingin logout?')">logout</a>
+    </form>
+    
     <table border="1" cellspacing="0" cellpadding="10">
         <tr>
             <th>No.</th>
@@ -66,11 +77,22 @@
         <?php endforeach; ?>
     </table>
         <form action="" method = "post">
-            <button type="submit" name="next" value="1" >1</button>
-            <button type="submit" name="next" value="2">2</button>
-            <button type="submit" name="next" value="3">3</button>
-            <button type="submit" name="next" value="4">4</button>
-            <button type = "submit" name = "next-page">next</button>
+            <?php if ($pageSelected > 1) : ?>
+                <button type="submit" name="page" value ="<?= $_POST["page"] = $pageSelected - 1; ?>" >&larr;</button>
+            <?php endif; ?>
+            <?php if($totalPage != 1) : ?>
+                <?php for($i = 1; $i <= $totalPage; $i++) : ?>
+                    <?php if($i == $pageSelected) : ?>
+                        <button type="submit" name="page" value = "<?= $_POST["page"] = $i; ?>" style="color:red;" ><?= $i; ?></button>
+                    <?php else : ?>
+                        <button type="submit" name="page" value = "<?= $_POST["page"] = $i; ?>"><?= $i; ?></button>
+                    <?php endif; ?>
+
+                <?php endfor; ?>
+            <?php endif; ?>
+            <?php if ($pageSelected < $totalPage) : ?>
+                <button type="submit" name="page" value ="<?= $_POST["page"] = $pageSelected + 1; ?>" >&rarr;</button>
+            <?php endif; ?>
         </form>
 </body>
 </html>

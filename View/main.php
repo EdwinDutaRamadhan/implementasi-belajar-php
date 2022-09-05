@@ -16,7 +16,6 @@
         session_destroy();
         header("Location: login.php");
     }
-
     $rowEveryPage = 10;
     $pageSelected = (isset($_GET["page"])) ? $_GET['page'] : 1;
     $_GET["page"] = (isset($_GET["page"])) ? $_GET['page'] : 1;
@@ -29,6 +28,10 @@
     if( isset($_POST['cari'])){
         // $mahasiswa = cari($_POST['keywords']);
         $mahasiswa = cari($_POST['keywords']);    
+        $totalData = count($mahasiswa);
+        $firstDataEveryPage = ($rowEveryPage * $pageSelected ) - $rowEveryPage;
+        $totalPage = ceil($totalData / $rowEveryPage);
+        $i = $firstDataEveryPage + 1;
     }
 
 
@@ -45,9 +48,8 @@
 <body>
     <h1 text-align="center">Medical Assist Software</h1>
     <br>
-    <a href="add.php">Tambah data</a>
     <form action="" method="post">
-        <input type="text" name="keywords"placeholder="Search">
+        <input type="text" name="keywords"placeholder="Search" required>
         <button type="submit" name="cari">Cari</button>
         <a href="main.php?logout=true" style="float:right" name="logout" onclick="return confirm('anda yakin ingin logout?')">logout</a>
     </form>
@@ -55,7 +57,6 @@
     <table border="1" cellspacing="0" cellpadding="10">
         <tr>
             <th>No.</th>
-            <th>Action</th>
             <th>NIM</th>
             <th>Nama</th>
             <th>Vaksin - 1</th>
@@ -67,10 +68,6 @@
         <?php foreach ($mahasiswa as $row) : ?>
         <tr>
             <th><?= $i; ?></th>
-            <td>
-                <a href="edit.php?nim=<?= $row["NIM"];?>">Edit</a>|
-                <a href="delete.php?nim=<?= $row["NIM"]; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus?');" >Delete</a>
-            </td>
             <td><?= $row["NIM"]; ?></td>
             <td><?= $row["Nama"];?></td>
             <td><?= $row["Vaksin1"];?></td>
@@ -83,17 +80,21 @@
         <?php endforeach; ?>
     </table>
         <form action="" method = "get">
-            <?php if($_GET["page"] > 1) : ?>
+            <?php if($totalPage != 1) :?>
+                <?php if($_GET["page"] > 1) : ?>
                 <a href="?page=<?=$prev = ($_GET["page"] - 1);?>">prev</a>
-            <?php endif; ?>
-            <?php for($j = 1; $j <= $totalPage; $j++) :?>
-                <?php if($j == $pageSelected) : ?>
-                    <a href="?page=<?= $j ?> " style="font-weight: bold;color: red;" ><?= $j ?></a>
-                <?php else : ?>
-                    <a href="?page=<?= $j ?> "><?= $j ?></a>
                 <?php endif; ?>
-            <?php endfor; ?>
-            <a href="?page=<?= $next = $_GET["page"] + 1;?>">next</a>
+                <?php for($j = 1; $j <= $totalPage; $j++) :?>
+                    <?php if($j == $pageSelected) : ?>
+                        <a href="?page=<?= $j ?> " style="font-weight: bold;color: red;" ><?= $j ?></a>
+                    <?php else : ?>
+                        <a href="?page=<?= $j ?> "><?= $j ?></a>
+                    <?php endif; ?>
+                <?php endfor; ?>
+                <?php if($_GET["page"] >= 1) : ?>
+                    <a href="?page=<?= $next = $_GET["page"] + 1;?>">next</a>
+                <?php endif; ?>
+            <?php endif; ?>
         </form>
 </body>
 </html>
