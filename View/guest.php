@@ -40,7 +40,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
-
+    <link rel="stylesheet" href="../Style/guest.css">
 </head>
 <body>
     <h1 text-align="center">Medical Assist Software</h1>
@@ -64,7 +64,7 @@
         </tr>
         <?php foreach ($mahasiswa as $row) : ?>
         <tr>
-            <th><?= $i; ?></th>
+            <td><?= $i; ?></td>
             <td><?= $row["NIM"]; ?></td>
             <td><?= $row["Nama"];?></td>
             <td><?= $row["Vaksin1"];?></td>

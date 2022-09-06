@@ -5,7 +5,7 @@ body {
     margin:0;
     padding:0;
     font-family: sans-serif;
-    background: linear-gradient(#5B7BFD, #D0E7FB);
+    background: linear-gradient(#D0E7FB, rgba(91,123,253,0.7));
 }
   .login-box {
     position: absolute;
@@ -14,7 +14,7 @@ body {
     width: 400px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background: rgba(0,0,0,.5);
+    background: rgba(91,123,253,.9);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
@@ -57,7 +57,7 @@ body {
   .login-box .user-box input:valid ~ label {
     top: -20px;
     left: 0;
-    color: #5B7BFD;
+    color: #FFFFFF;
     font-size: 12px;
   }
   
@@ -76,19 +76,19 @@ body {
   }
   
   .login-box button:hover {
-    background: #5B7BFD;
-    color: #fff;
+    background: #47ECD6;
+    color: #62B1E5;
     border-radius: 5px;
-    box-shadow: 0 0 5px #5B7BFD,
-                0 0 25px #5B7BFD,
-                0 0 50px #5B7BFD,
-                0 0 100px #5B7BFD;
+    box-shadow: 0 0 5px #47ECD6,
+                0 0 25px #47ECD6,
+                0 0 50px #47ECD6,
+                0 0 100px #47ECD6;
   }
 
   .button {
     display: inline-block;
     border-radius: 4px;
-    background-color: #5B7BFD;
+    background-color: rgba(91,123,253,.9);
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -128,4 +128,5 @@ body {
     position: absolute;
     display: block;
   }
+  
   
