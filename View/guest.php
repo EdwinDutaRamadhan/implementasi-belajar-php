@@ -40,42 +40,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
-    <link rel="stylesheet" href="../Style/guest.css">
+    <link rel="stylesheet" type="text/css" href="../Style/guest2.css">
 </head>
 <body>
-    <h1 text-align="center">Medical Assist Software</h1>
+    <div class="title"><h1 text-align="center">Medical Assist Software</h1></div>
     <br>
-    <form action="" method="get">
-        <input type="text" name="s"placeholder="Search" required>
-        <button type="submit" >Cari</button>
-        <a href="main.php?logout=true" style="float:right" name="logout" onclick="return confirm('anda yakin ingin logout?')">logout</a>
-    </form>
+    <div class="search-panel" >
+        <form action="" method="get">
+            <input type="text" name="s"placeholder="Search" required>
+            <button type="submit" >Cari</button>
+        </form>
+    </div>
     
-    <table border="1" cellspacing="0" cellpadding="10">
-        <tr>
-            <th>No.</th>
-            <th>NIM</th>
-            <th>Nama</th>
-            <th>Vaksin - 1</th>
-            <th>Vaksin - 2</th>
-            <th>Booster - 1</th>
-            <th>Booster - 2</th>
-            <th>Booster - 3</th>
-        </tr>
-        <?php foreach ($mahasiswa as $row) : ?>
-        <tr>
-            <td><?= $i; ?></td>
-            <td><?= $row["NIM"]; ?></td>
-            <td><?= $row["Nama"];?></td>
-            <td><?= $row["Vaksin1"];?></td>
-            <td><?= $row["Vaksin2"];?></td>
-            <td><?= $row["Vaksin3"];?></td>
-            <td><?= $row["Vaksin4"];?></td>
-            <td><?= $row["Vaksin5"];?></td>
-        </tr>
-        <?php $i++; ?>
-        <?php endforeach; ?>
-    </table>
+    <div class="table-card">
+        <table cellspacing="0" cellpadding="10">
+            <tr>
+                <th>No.</th>
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Vaksin - 1</th>
+                <th>Vaksin - 2</th>
+                <th>Booster - 1</th>
+                <th>Booster - 2</th>
+                <th>Booster - 3</th>
+            </tr>
+            <?php foreach ($mahasiswa as $row) : ?>
+            <tr class="data-table" >
+                <td><?= $i; ?></td>
+                <td><?= $row["NIM"]; ?></td>
+                <td><?= $row["Nama"];?></td>
+                <td><?= $row["Vaksin1"];?></td>
+                <td><?= $row["Vaksin2"];?></td>
+                <td><?= $row["Vaksin3"];?></td>
+                <td><?= $row["Vaksin4"];?></td>
+                <td><?= $row["Vaksin5"];?></td>
+            </tr>
+            <?php $i++; ?>
+            <?php endforeach; ?>
+        </table>
+    </div>
+    <div class="navigator" >
         <form action="" method = "post">
             <?php if ($pageSelected > 1) : ?>
                 <button type="submit" name="page" value ="<?= $_POST["page"] = $pageSelected - 1; ?>" >&larr;</button>
@@ -94,5 +98,6 @@
                 <button type="submit" name="page" value ="<?= $_POST["page"] = $pageSelected + 1; ?>" >&rarr;</button>
             <?php endif; ?>
         </form>
+    </div>
 </body>
 </html>

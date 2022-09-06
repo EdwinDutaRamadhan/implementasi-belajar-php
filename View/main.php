@@ -43,42 +43,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
-
+    <link rel="stylesheet" href="../Style/main.css">
 </head>
 <body>
     <h1 text-align="center">Medical Assist Software</h1>
     <br>
+    <div class="search-panel">
     <form action="" method="post">
         <input type="text" name="keywords"placeholder="Search" required>
         <button type="submit" name="cari">Cari</button>
         <a href="main.php?logout=true" style="float:right" name="logout" onclick="return confirm('anda yakin ingin logout?')">logout</a>
     </form>
+    </div>
     
-    <table border="1" cellspacing="0" cellpadding="10">
-        <tr>
-            <th>No.</th>
-            <th>NIM</th>
-            <th>Nama</th>
-            <th>Vaksin - 1</th>
-            <th>Vaksin - 2</th>
-            <th>Booster - 1</th>
-            <th>Booster - 2</th>
-            <th>Booster - 3</th>
-        </tr>
-        <?php foreach ($mahasiswa as $row) : ?>
-        <tr>
-            <th><?= $i; ?></th>
-            <td><?= $row["NIM"]; ?></td>
-            <td><?= $row["Nama"];?></td>
-            <td><?= $row["Vaksin1"];?></td>
-            <td><?= $row["Vaksin2"];?></td>
-            <td><?= $row["Vaksin3"];?></td>
-            <td><?= $row["Vaksin4"];?></td>
-            <td><?= $row["Vaksin5"];?></td>
-        </tr>
-        <?php $i++; ?>
-        <?php endforeach; ?>
-    </table>
+    <div style="table-card">
+        <table  cellspacing="0" cellpadding="10">
+            <tr>
+                <th>No.</th>
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Vaksin - 1</th>
+                <th>Vaksin - 2</th>
+                <th>Booster - 1</th>
+                <th>Booster - 2</th>
+                <th>Booster - 3</th>
+            </tr>
+            <?php foreach ($mahasiswa as $row) : ?>
+            <tr class="data-table">
+                <th><?= $i; ?></th>
+                <td><?= $row["NIM"]; ?></td>
+                <td><?= $row["Nama"];?></td>
+                <td><?= $row["Vaksin1"];?></td>
+                <td><?= $row["Vaksin2"];?></td>
+                <td><?= $row["Vaksin3"];?></td>
+                <td><?= $row["Vaksin4"];?></td>
+                <td><?= $row["Vaksin5"];?></td>
+            </tr>
+            <?php $i++; ?>
+            <?php endforeach; ?>
+        </table>
+    </div>
         <form action="" method = "get">
             <?php if($totalPage != 1) :?>
                 <?php if($_GET["page"] > 1) : ?>

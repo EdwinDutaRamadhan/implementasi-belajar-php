@@ -1,0 +1,68 @@
+html {
+    height: 100%;
+  }
+body {
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: rgb(245,246,251);
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 15px;
+  }
+  
+  .title{
+    width: 100%;
+    text-align: center;
+    color : rgb(91,123,253);
+  }
+  .data-table{
+    border: 10px solid rgb(245,246,251);
+    border-top: 15px solid rgb(245,246,251);
+    background-color: rgb(208,231,251);
+  }
+  th {
+    color: rgb(164,164,164);
+  }
+  
+  .table-card{
+    margin-left: 5%;
+  }
+  .data-table:hover {
+    background-color: rgb(91,123,253);
+    color : rgb(245,246,251);
+  }
+  .search-panel{
+    margin-left: 6%;
+    margin-right: 6%;
+  }
+  .navigator{
+    margin-left: 6%;
+    margin-right: 6%;
+  }
+  /* 
+  border: 1px solid rgb(245,246,251);
+  public Color biruTua(){ 
+            return new Color(208,231,251);
+        }
+        public Color abuabu(){
+            return new Color(153,153,153);
+        }
+        public Color biruMuda(){
+            return new Color(91,123,253);
+        }
+        public Color hitam(){
+            return new Color(0,0,0);
+        }
+        public Color background(){
+            return new Color(245,246,251);
+        }
+  */
+  
