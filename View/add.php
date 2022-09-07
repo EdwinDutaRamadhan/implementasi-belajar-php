@@ -10,7 +10,7 @@
             echo "
                 <script>
                     alert('data berhasil ditambah');
-                    document.location.href = '../index.php';
+                    document.location.href = 'main.php';
                 </script>
             ";
         }else{

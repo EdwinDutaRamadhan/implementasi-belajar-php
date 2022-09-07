@@ -26,7 +26,9 @@
                 </script>
             ";
         }
+        
     }
+    var_dump($mahasiswa);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +69,7 @@
                     <option value="Sinopharm" <?=$mahasiswa['Vaksin1'] == 'Sinopharm' ? ' selected="Sinopharm"' : '';?> >Sinopharm</option>
                     <option value="Moderna" <?=$mahasiswa['Vaksin1'] == 'Moderna' ? ' selected="Moderna"' : '';?> >Moderna</option>
                     <option value="Pfizer-BioNTech" <?=$mahasiswa['Vaksin1'] == 'Pfizer-BioNTech' ? ' selected="Pfizer-BioNTech"' : '';?> >Pfizer</option>
-                    <option value="Oxford-Astrazeneca" <?=$mahasiswa['Vaksin1'] == 'Oxford-Astrazeneca' ? ' selected="Oxford-Astrazeneca"' : '';?> >Astrazeneca</option>
+                    <option value="Oxford-AstraZeneca" <?=$mahasiswa['Vaksin1'] == 'Oxford-AstraZeneca' ? ' selected="Oxford-AstraZeneca"' : '';?> >AstraZeneca</option>
                 </select>
             </li>
             <li>
@@ -80,7 +82,7 @@
                     <option value="Sinopharm" <?=$mahasiswa['Vaksin2'] == 'Sinopharm' ? ' selected="Sinopharm"' : '';?> >Sinopharm</option>
                     <option value="Moderna" <?=$mahasiswa['Vaksin2'] == 'Moderna' ? ' selected="Moderna"' : '';?> >Moderna</option>
                     <option value="Pfizer-BioNTech" <?=$mahasiswa['Vaksin2'] == 'Pfizer-BioNTech' ? ' selected="Pfizer-BioNTech"' : '';?> >Pfizer</option>
-                    <option value="Oxford-Astrazeneca" <?=$mahasiswa['Vaksin2'] == 'Oxford-Astrazeneca' ? ' selected="Oxford-Astrazeneca"' : '';?> >Astrazeneca</option>
+                    <option value="Oxford-AstraZeneca" <?=$mahasiswa['Vaksin2'] == 'Oxford-AstraZeneca' ? ' selected="Oxford-AstraZeneca"' : '';?> >AstraZeneca</option>
                     
                 </select>
             </li>
@@ -95,7 +97,7 @@
                     <option value="Sinopharm" <?=$mahasiswa['Vaksin3'] == 'Sinopharm' ? ' selected="Sinopharm"' : '';?> >Sinopharm</option>
                     <option value="Moderna" <?=$mahasiswa['Vaksin3'] == 'Moderna' ? ' selected="Moderna"' : '';?> >Moderna</option>
                     <option value="Pfizer-BioNTech" <?=$mahasiswa['Vaksin3'] == 'Pfizer-BioNTech' ? ' selected="Pfizer-BioNTech"' : '';?> >Pfizer</option>
-                    <option value="Oxford-Astrazeneca" <?=$mahasiswa['Vaksin3'] == 'Oxford-Astrazeneca' ? ' selected="Oxford-Astrazeneca"' : '';?> >Astrazeneca</option>
+                    <option value="Oxford-AstraZeneca" <?=$mahasiswa['Vaksin3'] == 'Oxford-AstraZeneca' ? ' selected="Oxford-AstraZeneca"' : '';?> >AstraZeneca</option>
                 </select>
             </li>
 
@@ -109,7 +111,7 @@
                     <option value="Sinopharm" <?=$mahasiswa['Vaksin4'] == 'Sinopharm' ? ' selected="Sinopharm"' : '';?> >Sinopharm</option>
                     <option value="Moderna" <?=$mahasiswa['Vaksin4'] == 'Moderna' ? ' selected="Moderna"' : '';?> >Moderna</option>
                     <option value="Pfizer-BioNTech" <?=$mahasiswa['Vaksin4'] == 'Pfizer-BioNTech' ? ' selected="Pfizer-BioNTech"' : '';?> >Pfizer</option>
-                    <option value="Oxford-Astrazeneca" <?=$mahasiswa['Vaksin4'] == 'Oxford-Astrazeneca' ? ' selected="Oxford-Astrazeneca"' : '';?> >Astrazeneca</option>
+                    <option value="Oxford-AstraZeneca" <?=$mahasiswa['Vaksin4'] == 'Oxford-AstraZeneca' ? ' selected="Oxford-AstraZeneca"' : '';?> >AstraZeneca</option>
                 </select>
             </li>
 
@@ -123,7 +125,7 @@
                     <option value="Sinopharm" <?=$mahasiswa['Vaksin5'] == 'Sinopharm' ? ' selected="Sinopharm"' : '';?> >Sinopharm</option>
                     <option value="Moderna" <?=$mahasiswa['Vaksin5'] == 'Moderna' ? ' selected="Moderna"' : '';?> >Moderna</option>
                     <option value="Pfizer-BioNTech" <?=$mahasiswa['Vaksin5'] == 'Pfizer-BioNTech' ? ' selected="Pfizer-BioNTech"' : '';?> >Pfizer</option>
-                    <option value="Oxford-Astrazeneca" <?=$mahasiswa['Vaksin5'] == 'Oxford-Astrazeneca' ? ' selected="Oxford-Astrazeneca"' : '';?> >Astrazeneca</option>
+                    <option value="Oxford-AstraZeneca" <?=$mahasiswa['Vaksin5'] == 'Oxford-AstraZeneca' ? ' selected="Oxford-AstraZeneca"' : '';?> >AstraZeneca</option>
                 </select>
             </li>
 

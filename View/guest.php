@@ -6,14 +6,6 @@
     $_POST["page"] = (isset($_POST["page"])) ? $_POST['page'] : 1;
     $pageSelected = (isset($_POST["page"])) ? $_POST['page'] : 1;
     
-    // if( isset($_POST['cari'])){
-    //     // $mahasiswa = cari($_POST['s']);
-    //     $mahasiswa = cari($_POST['s']);    
-    //     $totalData = count($mahasiswa);
-    //     $firstDataEveryPage = ($rowEveryPage * $pageSelected ) - $rowEveryPage;
-    //     $totalPage = ceil($totalData / $rowEveryPage);
-    //     $i = $firstDataEveryPage + 1;
-    // }
     if( isset($_POST["page"]) ){
         if( isset($_GET["s"]) ){
             $nim = $_GET["s"];

@@ -34,6 +34,7 @@ table {
   
   .table-card{
     margin-left: 5%;
+    margin-right: 5%;
   }
   .data-table:hover {
     background-color: rgb(91,123,253);
