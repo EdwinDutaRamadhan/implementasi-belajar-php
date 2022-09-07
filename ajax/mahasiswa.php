@@ -48,23 +48,4 @@
             <?php $i++; ?>
             <?php endforeach; ?>
         </table>
-        <div class="navigator" >
-        <form action="" method = "post">
-            <?php if ($pageSelected > 1) : ?>
-                <button type="submit" name="page" value ="<?= $_POST["page"] = $pageSelected - 1; ?>" >&larr;</button>
-            <?php endif; ?>
-            <?php if($totalPage != 1) : ?>
-                <?php for($i = 1; $i <= $totalPage; $i++) : ?>
-                    <?php if($i == $pageSelected) : ?>
-                        <button type="submit" name="page" value = "<?= $_POST["page"] = $i; ?>" style="color:red;" ><?= $i; ?></button>
-                    <?php else : ?>
-                        <button type="submit" name="page" value = "<?= $_POST["page"] = $i; ?>"><?= $i; ?></button>
-                    <?php endif; ?>
-
-                <?php endfor; ?>
-            <?php endif; ?>
-            <?php if ($pageSelected < $totalPage) : ?>
-                <button type="submit" name="page" value ="<?= $_POST["page"] = $pageSelected + 1; ?>" >&rarr;</button>
-            <?php endif; ?>
-        </form>
-    </div>
+    

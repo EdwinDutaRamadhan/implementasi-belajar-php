@@ -66,13 +66,13 @@
             <button type="submit" name="refresh" style="float : right;" >Refresh</button>
         </form>
         <form action="" method="get">
-            <input type="text" name="s"placeholder="Search" required>
-            <button type="submit" >Cari</button>
+            <input type="text" name="s"placeholder="Search" id="keywords" required>
+            <button type="submit" id="search-button" >Cari</button>
         </form>
         
     </div>
     
-    <div class="table-card">
+    <div class="table-card" id="container">
         <table cellspacing="0" cellpadding="10">
             <tr>
                 <th>No.</th>
@@ -127,5 +127,6 @@
             <?php endif; ?>
         </form>
     </div>
+    <script src="../Script/script.js"></script>
 </body>
 </html>
