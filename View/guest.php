@@ -36,7 +36,7 @@
 </head>
 <body>
     <div class="title"><h1 text-align="center">Medical Assist Software</h1></div>
-    <br>
+    <div class="title"><h3 text-align="center">Vaccine Development 1.0</h3></div>
     <div class="search-panel" >
         <form action="" method="get">
             <input type="text" name="s"placeholder="Search" required>

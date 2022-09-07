@@ -67,3 +67,16 @@ table {
         }
   */
   
+  .main-container{
+    width: 100%;
+    height: 500px;
+}
+.container{
+    width: 33.3%;
+    float: left;
+    height: 400px;
+    position:relative;
+}
+.form{
+    padding: 5%;
+}

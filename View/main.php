@@ -10,6 +10,12 @@
         session_destroy();
         header("Location: login.php");
     }
+    if( isset($_POST["tambah"]) ){
+        header("Location: add.php");
+    }
+    if( isset($_POST["refresh"]) ){
+        header("Location: main.php");
+    }
     $rowEveryPage = 10;
     $_GET["page"] = (isset($_GET["page"])) ? $_GET['page'] : 1;
     $_POST["page"] = (isset($_POST["page"])) ? $_POST['page'] : 1;
@@ -52,16 +58,18 @@
 </head>
 <body>
     <div class="title"><h1 text-align="center">Medical Assist Software</h1></div>
-    <br>
+    <div class="title"><h3 text-align="center">Vaccine Development 1.0</h3></div>
     <div class="search-panel" >
+        <form action="" method = "post">
+            <button type="submit" name="logout" style="float : right;" onclick="return confirm('Apakah anda yakin ingin logout?');">Logout</button>
+            <button type="submit" name="tambah" style="float : right;" >Add</button>
+            <button type="submit" name="refresh" style="float : right;" >Refresh</button>
+        </form>
         <form action="" method="get">
             <input type="text" name="s"placeholder="Search" required>
             <button type="submit" >Cari</button>
         </form>
-        <form action="" method = "post">
-            <a href="add.php">Tambah</a>
-            <button type="submit" name="logout" style="float : right;"">Logout</button>
-        </form>
+        
     </div>
     
     <div class="table-card">
@@ -92,7 +100,7 @@
                 <a href="edit.php?nim=<?= $row["NIM"]; ?>"><img src="../Image/editIcon.png" alt="not supported" width="30px" ></a>
                 </td>
                 <td>
-                <a href="delete.php?nim=<?= $row["NIM"]; ?>"><img src="../Image/deleteIcon.png" alt="not supported" width="30px"></a>
+                <a href="delete.php?nim=<?= $row["NIM"]; ?>"><img src="../Image/deleteIcon.png" alt="not supported" width="30px" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');" ></a>
                 </td>
             </tr>
             <?php $i++; ?>

@@ -29,6 +29,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Data</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="../Style/add.css">
     <style>
         li{
             display : block;
@@ -38,22 +40,22 @@
     </style>
 </head>
 <body>
-    <h1>Tambah Data</h1>
-    <br>
     <a href="main.php">back</a>
-    <form action="" method = "post">
-        <ul>
+    <div class="main-container">
+        <div class="container"></div>
+        <div class="container">
+        <form action="" method = "post" class="form w3-container w3-card-4 w3-light-blue">
             <li>
-                <label for="nim">NIM</label>
-                <input type="text" name="nim" id="nim" autocomplete="off" required >
+                <label for="nim">NIM : </label>
+                <input class="w3-input w3-border w3-round-large" type="text" name="nim" id="nim" autocomplete="off" required >
             </li>
             <li>
-                <label for="nama">Nama</label>
-                <input type="text" name="nama" id="nama" autocomplete="off" required>
+                <label for="nama">Nama : </label>
+                <input class="w3-input w3-border w3-round-large" type="text" name="nama" id="nama" autocomplete="off" required>
             </li>
             <li>
                 <label for="vaksin-1">Vaksin - 1</label>
-                <select name="vaksin-1" id="vaksin-1">
+                <select class="w3-select"  name="vaksin-1" id="vaksin-1">
                     <option value="-">Tidak pilih</option>
                     <option value="Sinovac">Sinovac</option>
                     <option value="Sputnik V">Sputnik V</option>
@@ -66,7 +68,7 @@
             </li>
             <li>
                 <label for="vaksin-2">Vaksin - 2</label>
-                <select name="vaksin-2" id="vaksin-2">
+                <select class="w3-select" name="vaksin-2" id="vaksin-2">
                     <option value="-">Tidak pilih</option>
                     <option value="Sinovac">Sinovac</option>
                     <option value="Sputnik V">Sputnik V</option>
@@ -81,7 +83,7 @@
 
             <li>
                 <label for="vaksin-3">Vaksin - 3</label>
-                <select name="vaksin-3" id="vaksin-3">
+                <select class="w3-select" name="vaksin-3" id="vaksin-3">
                     <option value="-">Tidak pilih</option>
                     <option value="Sinovac">Sinovac</option>
                     <option value="Sputnik V">Sputnik V</option>
@@ -95,7 +97,7 @@
 
             <li>
                 <label for="vaksin-4">Vaksin - 4</label>
-                <select name="vaksin-4" id="vaksin-4">
+                <select class="w3-select" name="vaksin-4" id="vaksin-4">
                     <option value="-">Tidak pilih</option>
                     <option value="Sinovac">Sinovac</option>
                     <option value="Sputnik V">Sputnik V</option>
@@ -109,7 +111,7 @@
 
             <li>
                 <label for="vaksin-5">Vaksin - 5</label>
-                <select name="vaksin-5" id="vaksin-5">
+                <select class="w3-select" name="vaksin-5" id="vaksin-5">
                     <option value="-">Tidak pilih</option>
                     <option value="Sinovac">Sinovac</option>
                     <option value="Sputnik V">Sputnik V</option>
@@ -122,9 +124,10 @@
             </li>
 
             <li>
-                <button type="submit" name="tambah">Add</button>
+                <button class="w3-btn w3-teal" type="submit" name="tambah">Add</button>
             </li>
-        </ul>
     </form>
+    </div>
+    <div class="container"></div>
 </body>
 </html>
