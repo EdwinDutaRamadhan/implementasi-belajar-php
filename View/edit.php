@@ -3,7 +3,7 @@
     if($_SESSION["Validasi"] == false){
         header("Location: login.php");
     }
-    if($_GET["nim"] == ''){
+    if(!isset($_GET["nim"])){
         header("Location: main.php");
     }
     require '../Function/function.php';

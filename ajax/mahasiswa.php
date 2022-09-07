@@ -1,17 +1,16 @@
 <?php
-    session_start();
     require '../Function/function.php';
+    $keywords = $_GET["keywords"];
     $rowEveryPage = 10;
     $_GET["page"] = (isset($_GET["page"])) ? $_GET['page'] : 1;
     $_POST["page"] = (isset($_POST["page"])) ? $_POST['page'] : 1;
     $pageSelected = (isset($_POST["page"])) ? $_POST['page'] : 1;
-    
     if( isset($_POST["page"]) ){
-        if( isset($_GET["s"]) ){
-            $totalData = count(cariNoLimit($_GET["s"]));
+        if( isset($keywords) ){
+            $totalData = count(cariNoLimit($keywords));
             $firstDataEveryPage = ($rowEveryPage * $pageSelected ) - $rowEveryPage;
             $totalPage = ceil($totalData / $rowEveryPage);
-            $mahasiswa = cariLimit($_GET["s"],  $firstDataEveryPage, $rowEveryPage);
+            $mahasiswa = cariLimit($keywords,  $firstDataEveryPage, $rowEveryPage);
             $i = $firstDataEveryPage + 1;
         }else{
             $totalData = count(query("SELECT * FROM tbl_mahasiswa"));
@@ -22,40 +21,9 @@
         }
 
     }
-    if( isset($_POST["refresh"]) ){
-        header("Location: guest.php");
-    }
-    if( isset($_POST["login"]) ){
-        header("Location: login.php");
-    }
-
+    $i=1;
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
-    <link rel="stylesheet" type="text/css" href="../Style/guest2.css">
-</head>
-<body>
-    <div class="title"><h1 text-align="center">Medical Assist Software</h1></div>
-    <div class="title"><h3 text-align="center">Vaccine Development 1.0</h3></div>
-    <div class="search-panel" >
-        <form action="" method="post">
-        <button type="submit" name="login" style="float : right;" >Login</button>
-        <button type="submit" name="refresh" style="float : right;" >Refresh</button>       
-        </form>
-        <form action="" method="get">
-            <input type="text" name="s"placeholder="Search" required id="keywords" autocomplete="off" >
-            <button type="submit" id="search-button" >Cari</button>
-        </form>
-        
-    </div>
-    
-    <div class="table-card" id="container">
-        <table cellspacing="0" cellpadding="10">
+<table cellspacing="0" cellpadding="10">
             <tr>
                 <th>No.</th>
                 <th>NIM</th>
@@ -80,8 +48,7 @@
             <?php $i++; ?>
             <?php endforeach; ?>
         </table>
-    </div>
-    <div class="navigator" >
+        <div class="navigator" >
         <form action="" method = "post">
             <?php if ($pageSelected > 1) : ?>
                 <button type="submit" name="page" value ="<?= $_POST["page"] = $pageSelected - 1; ?>" >&larr;</button>
@@ -101,6 +68,3 @@
             <?php endif; ?>
         </form>
     </div>
-    <script src="../Script/script.js"></script>
-</body>
-</html>
