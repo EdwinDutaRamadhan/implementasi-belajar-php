@@ -43,9 +43,14 @@
         .loader{
             width: 25px;
             position : absolute;
-            top:18.4%;
+            top:120px;
             margin-left: 10px;
             display:none;
+        }
+        @media print{
+            .login-btn{
+                display:none;
+            }
         }
     </style>
 </head>
@@ -54,7 +59,7 @@
     <div class="title"><h3 text-align="center">Vaccine Development 1.0</h3></div>
     <div class="search-panel" >
         <form action="" method="post">
-        <button type="submit" name="login" style="float : right;" >Login</button>
+        <button type="submit" name="login" style="float : right;" class="login-btn">Login</button>
         <button type="submit" name="refresh" style="float : right;" >Refresh</button>       
         </form>
         <form action="" method="get">

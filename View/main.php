@@ -54,6 +54,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="../Style/main.css">
 </head>
 <body>
@@ -61,12 +62,12 @@
     <div class="title"><h3 text-align="center">Vaccine Development 1.0</h3></div>
     <div class="search-panel" >
         <form action="" method = "post">
-            <button type="submit" name="logout" style="float : right;" onclick="return confirm('Apakah anda yakin ingin logout?');">Logout</button>
+            <button  type="submit" name="logout" style="float : right;" onclick="return confirm('Apakah anda yakin ingin logout?');">Logout</button>
             <button type="submit" name="tambah" style="float : right;" >Add</button>
             <button type="submit" name="refresh" style="float : right;" >Refresh</button>
         </form>
         <form action="" method="get">
-            <input type="text" name="s"placeholder="Search" id="keywords" required>
+            <input type="text" name="s"placeholder="Search" id="keywords"style="width:100px;max-width: 220px;" required class="w3-input w3-animate-input">
             <button type="submit" id="search-button" >Cari</button>
         </form>
         
@@ -127,7 +128,7 @@
             <?php endif; ?>
         </form>
     </div>
-
-    <script src="../Script/script.js"></script>
+    <script src="../Script/jquery-3.6.1.min.js"></script>
+    <script src="../Script/guest.js"></script>
 </body>
 </html>
