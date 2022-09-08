@@ -66,4 +66,7 @@ table {
             return new Color(245,246,251);
         }
   */
+  .loader{
+    width: 100px;
+  }
   

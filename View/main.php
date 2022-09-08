@@ -127,6 +127,7 @@
             <?php endif; ?>
         </form>
     </div>
+
     <script src="../Script/script.js"></script>
 </body>
 </html>

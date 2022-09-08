@@ -37,7 +37,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
+    
     <link rel="stylesheet" type="text/css" href="../Style/guest2.css">
+    <style>
+        .loader{
+            width: 25px;
+            position : absolute;
+            top:18.4%;
+            margin-left: 10px;
+            display:none;
+        }
+    </style>
 </head>
 <body>
     <div class="title"><h1 text-align="center">Medical Assist Software</h1></div>
@@ -50,6 +60,7 @@
         <form action="" method="get">
             <input type="text" name="s"placeholder="Search" required id="keywords" autocomplete="off" >
             <button type="submit" id="search-button" >Cari</button>
+            <img src="../Image/loading.gif" class="loader" alt="eror">
         </form>
         
     </div>
@@ -101,6 +112,7 @@
             <?php endif; ?>
         </form>
     </div>
-    <script src="../Script/script.js"></script>
+    <script src="../Script/jquery-3.6.1.min.js"></script>
+    <script src="../Script/guest.js"></script>
 </body>
 </html>

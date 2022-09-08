@@ -1,4 +1,5 @@
 <?php
+    usleep(500000);//sudah di hosting harus dihapus
     require '../Function/function.php';
     $keywords = $_GET["keywords"];
     $rowEveryPage = 10;
@@ -48,4 +49,5 @@
             <?php $i++; ?>
             <?php endforeach; ?>
         </table>
+    
     
