@@ -16,3 +16,11 @@ $(document).ready(function() {
     });
     
 });
+
+/*
+epiz_32552430
+DSSvGk5JKu
+db = epiz_32552430_db_pedes
+mysql username = epiz_32552430
+hostname = sql108.epizy.com
+*/
