@@ -4,16 +4,27 @@
     if($_SESSION["Validasi"] == false){
         header("Location: login.php");
     }
+    if(!isset($_COOKIE["valid"])){
+        header("Location: login.php");
+        echo("
+            <script>
+                alert('Anda tidak aktif lebih dari 5 menit!');
+            </script>
+        ");
+    }
     if( isset($_POST["logout"])){
         $_SESSION["Validasi"] = false;
         session_unset();
         session_destroy();
+        setcookie("valid", "", time() - 3600);
         header("Location: login.php");
     }
     if( isset($_POST["tambah"]) ){
+        setcookie('valid','true',time()+300);
         header("Location: add.php");
     }
     if( isset($_POST["refresh"]) ){
+        setcookie('valid','true',time()+300);
         header("Location: main.php");
     }
     $rowEveryPage = 10;
@@ -23,7 +34,6 @@
     
     if( isset($_POST["page"]) ){
         if( isset($_GET["s"]) ){
-            $nim = $_GET["s"];
             $totalData = count(cariNoLimit($_GET["s"]));
             $firstDataEveryPage = ($rowEveryPage * $pageSelected ) - $rowEveryPage;
             $totalPage = ceil($totalData / $rowEveryPage);
@@ -39,6 +49,7 @@
 
     }
     if( isset($_POST["delete"]) ){
+        setcookie('valid','true',time()+300);
         echo"
             <script>
                 alert('delete');
@@ -67,14 +78,14 @@
             <button type="submit" name="refresh" style="float : right;" >Refresh</button>
         </form>
         <form action="" method="get">
-            <input type="text" name="s"placeholder="Search" id="keywords"style="width:100px;max-width: 220px;" required class="w3-input w3-animate-input">
+            <input type="text" name="s"placeholder="Search" id="keywords"style="width:100px;max-width: 170px;" required class="w3-input w3-animate-input">
             <button type="submit" id="search-button" >Cari</button>
         </form>
         
     </div>
     
-    <div class="table-card" id="container">
-        <table cellspacing="0" cellpadding="10">
+    <div class="table-responsive" id="container" style="width:100%;">
+        <table class="table" cellspacing="0" cellpadding="10">
             <tr>
                 <th>No.</th>
                 <th>NIM</th>

@@ -37,8 +37,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
-    
-    <link rel="stylesheet" type="text/css" href="../Style/guest2.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../Style/guest.css">
     <style>
         .loader{
             width: 25px;
@@ -48,7 +49,7 @@
             display:none;
         }
         @media print{
-            .login-btn{
+            .non-print{
                 display:none;
             }
         }
@@ -63,15 +64,15 @@
         <button type="submit" name="refresh" style="float : right;" >Refresh</button>       
         </form>
         <form action="" method="get">
-            <input type="text" name="s"placeholder="Search" required id="keywords" autocomplete="off" >
+            <input class="w3-input w3-animate-input" type="text" name="s"placeholder="Search" required id="keywords" autocomplete="off" style="width:100px;max-width: 150px;" >
             <button type="submit" id="search-button" >Cari</button>
             <img src="../Image/loading.gif" class="loader" alt="eror">
         </form>
         
     </div>
     
-    <div class="table-card" id="container">
-        <table cellspacing="0" cellpadding="10">
+    <div class="table-responsive" id="container" style="width: 100%;">
+        <table class="table" cellspacing="0" cellpadding="10">
             <tr>
                 <th>No.</th>
                 <th>NIM</th>
