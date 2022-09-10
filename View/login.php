@@ -76,7 +76,7 @@
         </div>
             </div>
             <div class="col-sm-2">
-                <a href="" style="float:right;">Guest</a>
+                <a href="guest.php" style="float:right;">Guest</a>
             </div>
         </div>
     </div>
