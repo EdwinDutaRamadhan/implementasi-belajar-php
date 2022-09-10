@@ -2,9 +2,15 @@
     session_start();
     require '../Function/function.php';
     if( isset($_POST['login']) ){
-
+        //JANGAN DI PUSH KE SERER
         $username = $_POST["username"];
         $password = $_POST["password"];
+        $username = strtoupper(sha1($username));
+        $username = 'KBM'.$username.'PEDES';
+        var_dump($username);
+        $password = strtoupper(sha1($password));
+        $password = 'KBM'.$password.'PEDES';
+        var_dump($password);
         $result = mysqli_query($conn, "SELECT * FROM tbl_admin WHERE Username = '$username'");
         //cek username
         if( mysqli_num_rows($result) == 1 ){
@@ -20,6 +26,27 @@
             }
         }
         $error = true;
+        //JANGAN DI PUSH KE SEVER
+        /*
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        
+        $result = mysqli_query($conn, "SELECT * FROM tbl_admin WHERE Username = '$username'");
+        //cek username
+        if( mysqli_num_rows($result) == 1 ){
+            //cek password di database
+            $row = mysqli_fetch_assoc($result);
+            if( $password == $row['Password'] ){
+                //username password benar
+                //set session
+                $_SESSION["Validasi"] = true;
+                setcookie('valid','true',time()+300);
+                header("Location: main.php");
+                exit;
+            }
+        }
+        $error = true;
+        */
         
     }
     if(isset($_POST["guest"])){
