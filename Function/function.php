@@ -59,4 +59,9 @@
         mysqli_query($conn, $query);
         return mysqli_affected_rows($conn);
     }
+    function encrypt($data){
+        $encryptData = strtoupper(sha1($data));
+        $encryptData = 'KBM'.$encryptData.'PEDES';
+        return $encryptData;
+    }
 ?>

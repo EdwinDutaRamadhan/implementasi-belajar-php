@@ -49,12 +49,12 @@
     </style>
 </head>
 <body>
-    <div class="container" style="width: 100%;">
+    <div class="container">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col">
             <a href="main.php"style="float:left;">back</a>
             </div>
-            <div class="col-md-8">
+            <div class="col-6">
             <form action="" method = "post" class="form w3-container w3-card-4 w3-light-blue">
                 <li>
                     <label for="nim">NIM : </label>
@@ -139,7 +139,7 @@
                 </li>
         </form>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col"></div>
     </div>
 </body>
 </html>

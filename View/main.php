@@ -15,7 +15,7 @@
     if( isset($_POST["logout"])){
         $_SESSION["Validasi"] = false;
         session_unset();
-        session_destroy();
+        session_destroy();   
         setcookie("valid", "", time() - 3600);
         header("Location: login.php");
     }

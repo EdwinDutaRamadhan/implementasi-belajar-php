@@ -5,16 +5,16 @@
         //JANGAN DI PUSH KE SERER
         $username = $_POST["username"];
         $password = $_POST["password"];
-        $username = strtoupper(sha1($username));
-        $username = 'KBM'.$username.'PEDES';
+        $username = encrypt($username);
         var_dump($username);
-        $password = strtoupper(sha1($password));
-        $password = 'KBM'.$password.'PEDES';
+        $password = encrypt($password);
         var_dump($password);
         $result = mysqli_query($conn, "SELECT * FROM tbl_admin WHERE Username = '$username'");
         //cek username
         if( mysqli_num_rows($result) == 1 ){
             //cek password di database
+            
+            
             $row = mysqli_fetch_assoc($result);
             if( $password == $row['Password'] ){
                 //username password benar
